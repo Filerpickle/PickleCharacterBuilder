@@ -1,0 +1,72 @@
+﻿<Window x:Class="PickleCharacterBuilder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PickleCharacterBuilder" Height="600" Width="800"
+        FontFamily="Segoe UI" Background="Black">
+
+    <Window.Resources>
+        <!-- Black ScrollBar Style -->
+        <Style x:Key="BlackScrollBar" TargetType="ScrollBar">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollBar">
+                        <Grid Background="{TemplateBinding Background}">
+                            <Track Name="PART_Track">
+                                <Track.Thumb>
+                                    <Thumb Background="Black"/>
+                                </Track.Thumb>
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/Assets/starry-sky.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <!-- Dark overlay for readability -->
+        <Grid Margin="10" Background="#AA1e1b29">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Search:" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="White"/>
+                <TextBox x:Name="SearchBox" Width="300" TextChanged="SearchBox_TextChanged"
+                         Background="#2a223a" Foreground="White" BorderBrush="#5a4b82"/>
+            </StackPanel>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+
+                <ListBox x:Name="TitleList" SelectionChanged="TitleList_SelectionChanged"
+                         Background="#AA1e1b29" Foreground="White" BorderBrush="#5a4b82" FontSize="14"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListBox.Resources>
+                        <Style TargetType="ScrollBar" BasedOn="{StaticResource BlackScrollBar}" />
+                    </ListBox.Resources>
+                </ListBox>
+
+                <TextBox x:Name="CommandBox" Grid.Column="1" Margin="10,0,0,0"
+                         TextWrapping="Wrap" IsReadOnly="True"
+                         Background="#AA1e1b29" Foreground="White" FontFamily="Consolas"
+                         VerticalScrollBarVisibility="Auto" TextChanged="CommandBox_TextChanged">
+                    <TextBox.Resources>
+                        <Style TargetType="ScrollBar" BasedOn="{StaticResource BlackScrollBar}" />
+                    </TextBox.Resources>
+                </TextBox>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
