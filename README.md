@@ -1,7 +1,7 @@
 # **PickleCharacterBuilder**
 
 
-for any inquerys or issues dm 
+for any issues and/or feature requests dm
 ### lunxpanda aka Xion
 on discord!
 
