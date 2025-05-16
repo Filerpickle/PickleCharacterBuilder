@@ -9,5 +9,5 @@ on discord!
 a Character Builder for some lawnmowing private anime game
 
 # **COMMON ISSUES**
-## _none_
+## _none_.
 
